@@ -30,4 +30,4 @@ jobs:
         run: npm run build --if-present
         
       - name: Running npm tests
-        run: npm test -- --browsers=ChromeHeadless
+        run: npm test -- --watch=false --progress=false --browsers=ChromeHeadless
