@@ -25,10 +25,10 @@ export class AppComponent implements OnInit{
               private router: Router,
               private authGuardService: AuthguardService) {
     this.theme = themeService.theme;
-    this.router.navigate(['/deezer/search']);
   }
 
   ngOnInit(): void {
     this.authGuardService.canAccess();
+    this.router.navigate(['/deezer/search']);
   }
 }
