@@ -150,7 +150,7 @@ describe('PlaylistComponent', () => {
   });
 
   it('openDialog:: should not go to edit if playlist is not empty', () => {
-    spyOn(document, 'getElementById').and.returnValue({scrollIntoView: () => {}} as any);
+    //spyOn(document, 'getElementById').and.returnValue({scrollIntoView: () => {}} as any);
     spyOn(component, 'goLaunch');
     component.openDialog({types: 'test'} as any);
     expect(component.goLaunch).toHaveBeenCalled();
