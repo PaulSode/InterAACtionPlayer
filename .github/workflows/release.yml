@@ -25,13 +25,23 @@ jobs:
       - name: Build prod
         run: npm run build --prod
 
-      - name: Zip & Tar gz
+      - name: Zip & Tar gz Prod
         run: |
           cd ./dist/
           zip -r InterAACtionPlayer.zip *
           mv InterAACtionPlayer.zip ../
           tar -czvf InterAACtionPlayer.tar.gz *
           mv InterAACtionPlayer.tar.gz ../
+          cd ../
+
+      - name: Build prod Ligone
+        run: npm run ligone
+
+      - name: Zip prod Ligone
+        run: |
+          cd ./dist/
+          zip -r InterAACtionPlayerLigone.zip *
+          mv InterAACtionPlayerLigone.zip ../
 
       - name: Get Env
         run: |
@@ -73,4 +83,5 @@ jobs:
           files: |
             InterAACtionPlayer.tar.gz
             InterAACtionPlayer.zip
+            InterAACtionPlayerLigone.zip
           github-token: ${{ secrets.GITHUB_TOKEN }}
