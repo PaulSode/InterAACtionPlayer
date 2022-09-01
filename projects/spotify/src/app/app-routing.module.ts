@@ -7,13 +7,13 @@ const routes: Routes = [
     path: 'spotify',
     component: AppComponent,
     children: [
-      { // route => spotify/home
-        path: 'home',
-        loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
-      },
       { // route => spotify/search
         path: 'search',
         loadChildren: () => import('./pages/search/search.module').then(m => m.SearchModule)
+      },
+      { // route => spotify/home
+        path: 'home',
+        loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
       },
       { // route => /search/term
         path: 'search/:term',

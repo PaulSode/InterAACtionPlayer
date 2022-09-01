@@ -83,8 +83,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "codeCoverageExclude": [
-              "src/app/playlist/audioPlayer/filePlayer/**.ts",
-              "projects/deezer/src/app/app-routing.module.ts"
+              "src/app/playlist/audioPlayer/filePlayer/**.ts"
             ],
             "assets": [
               "src/favicon.ico",
