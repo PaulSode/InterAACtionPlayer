@@ -19,15 +19,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-          
+
       - name: Running npm install
         run: npm install
-          
-      - name: Running npm CI    
+
+      - name: Running npm CI
         run: npm ci
-        
+
       - name: Running build
         run: npm run build --if-present
-        
+
       - name: Running npm tests
-        run: npm test -- --watch=false --progress=false --browsers=ChromeHeadless
+        run: npm test
