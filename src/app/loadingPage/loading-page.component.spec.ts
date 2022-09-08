@@ -3,6 +3,7 @@ import { LoadingPageComponent } from './loading-page.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {RouterTestingModule} from '@angular/router/testing';
 import { SaveService } from '../services/save.service';
+import {HttpClientModule} from "@angular/common/http";
 
 describe('LoadingPageComponent', () => {
   let component: LoadingPageComponent;
@@ -16,7 +17,7 @@ describe('LoadingPageComponent', () => {
         path: 'fr/playlist', component: LoadingPageComponent,
       }, {
         path: 'en/playlist', component: LoadingPageComponent,
-      }])],
+      }]), HttpClientModule],
       providers: [
         { provide: SaveService, useValue: mocksaveService }
       ]

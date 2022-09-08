@@ -6,6 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateModule } from '@ngx-translate/core';
 import { ThemeService } from '../services/theme.service';
 import { of } from 'rxjs';
+import {HttpClientModule} from "@angular/common/http";
 
 class MockThemeService {
   theme;
@@ -28,7 +29,7 @@ describe('UserComponent', () => {
       declarations: [ UserComponent ],
       imports: [ MatDialogModule, RouterTestingModule.withRoutes([
         { path: 'playlist', component: UserComponent }
-      ]), TranslateModule.forRoot() ],
+      ]), TranslateModule.forRoot(), HttpClientModule ],
       providers: [
         { provide: ThemeService, useClass: MockThemeService }
       ]
