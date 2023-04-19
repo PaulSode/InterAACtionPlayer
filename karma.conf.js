@@ -5,6 +5,10 @@ module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
+    files: [
+      "src/assets/FilesJs/visualizer.js",
+      "src/assets/FilesJs/deezer.js"
+    ],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
@@ -28,8 +32,20 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
-    restartOnFileChange: true
+    browsers: ['ChromeHeadless'],
+    customLaunchers: {
+      ChromeHeadless: {
+        base: "Chrome",
+        flags: [
+          "--headless",
+          "--disable-gpu",
+          "--no-sandbox", // required to run without privileges in docker
+          "--remote-debugging-port=9222", // Without a remote debugging port, Google Chrome exits immediately.
+          "--js-flags=--max-old-space-size=4096"
+        ]
+      }
+    },
+    singleRun: true,
+    random: false
   });
 };

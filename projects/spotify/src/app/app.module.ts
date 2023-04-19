@@ -4,8 +4,9 @@
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
 import { AppRoutingModule } from './app-routing.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms';
 
 /**
  * Import Component Main-Application
@@ -50,6 +51,7 @@ const providers = [
     AppRoutingModule,
     HttpClientModule,
     TranslateModule,
+    FormsModule
   ],
   providers: providers,
   bootstrap: [

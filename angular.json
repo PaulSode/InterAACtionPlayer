@@ -82,6 +82,9 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "codeCoverageExclude": [
+              "src/app/playlist/audioPlayer/filePlayer/**.ts"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -89,7 +92,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "codeCoverage": true
           }
         },
         "lint": {
@@ -305,23 +309,6 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "spotify:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/spotify/src/test.ts",
-            "polyfills": "projects/spotify/src/polyfills.ts",
-            "tsConfig": "projects/spotify/tsconfig.spec.json",
-            "karmaConfig": "projects/spotify/karma.conf.js",
-            "assets": [
-              "projects/spotify/src/favicon.ico",
-              "projects/spotify/src/assets"
-            ],
-            "styles": [
-              "projects/spotify/src/styles.css"
-            ],
-            "scripts": []
           }
         },
         "lint": {

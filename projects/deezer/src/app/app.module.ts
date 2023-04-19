@@ -9,6 +9,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
 
 /**
+ * Import Component Main-Application
+ */
+import { AppComponent } from './app.component';
+import { NavBarComponent } from './pages/nav-bar/nav-bar.component';
+
+/**
  * Custom angular notifier options
  */
 import { NotifierModule, NotifierOptions } from 'angular-notifier';
@@ -23,12 +29,6 @@ const customNotifierOptions: NotifierOptions = {
     shift: { speed: 300, easing: 'ease' },
     overlap: 150 }
 };
-
-/**
- * Import Component Main-Application
- */
-import { AppComponent } from './app.component';
-import { NavBarComponent } from './pages/nav-bar/nav-bar.component';
 
 /**
  * Import Services
@@ -51,7 +51,6 @@ const providers = [
         HttpClientModule,
         TranslateModule,
         FormsModule,
-        NotifierModule,
     ],
   providers: providers,
   bootstrap: [
