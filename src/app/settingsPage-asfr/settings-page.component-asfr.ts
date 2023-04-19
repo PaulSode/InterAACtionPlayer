@@ -80,6 +80,9 @@ export class SettingsPageComponentAsfr implements OnInit {
     this.themeService.emitTheme(this.themeValue);
     this.colorText = "colorDark";
     this.saveService.updateSettings();
+
+    this.btnThemeLight = true;
+    this.btnThemeDark = false;
   }
 
   /**
@@ -90,6 +93,9 @@ export class SettingsPageComponentAsfr implements OnInit {
     this.themeService.emitTheme(this.themeValue);
     this.colorText = "colorLight";
     this.saveService.updateSettings();
+
+    this.btnThemeLight = false;
+    this.btnThemeDark = true;
   }
 
   /**
@@ -99,6 +105,14 @@ export class SettingsPageComponentAsfr implements OnInit {
     this.dwellTimeEnable = value;
     this.dwellTimeService.dwellTime = this.dwellTimeEnable;
     this.saveService.updateSettings();
+
+    if (value){
+      this.btnDwellTimeYes = true; 
+      this.btnDwellTimeNo = false;
+    } else {
+      this.btnDwellTimeYes = false; 
+      this.btnDwellTimeNo = true;
+    }
   }
 
   /**
@@ -125,19 +139,22 @@ export class SettingsPageComponentAsfr implements OnInit {
     const alertDialog = this.dialog.open(ResetComponent);
     alertDialog.afterClosed().subscribe(() => {
       if (!this.alertService.alertCancel) {
-
         this.dwellTime(false);
         this.dwellTimeService.dwellTimeValue = 5000;
         this.diskProgressMode(true);
-        this.displayAlertMessage(true);
+        this.displayAlertMessage(false);
+        this.dwellTimeShape(true);
         this.toggleThemeLight();
-        this.saveService.updateSettings();
+      
 
-        window.location.reload();
+        this.saveService.updateSettings(); 
+
+        //window.location.reload();
 
         this.notifier.notify('warning', this.translate.instant('notifier.resetSettings'));
       }
     });
+   
   }
 
   /**
@@ -173,6 +190,15 @@ export class SettingsPageComponentAsfr implements OnInit {
   displayAlertMessage(value) {
     this.disableAlertMessage = value;
     this.alertService.doNotShowAgain = value;
+
+    if (value){
+      this.btnAlertMessageYes = true;
+        this.btnAlertMessageNo = false;
+    } else {
+      this.btnAlertMessageYes = false;
+        this.btnAlertMessageNo = true;
+    }
+
     this.saveService.updateSettings();
   }
 
@@ -196,12 +222,12 @@ export class SettingsPageComponentAsfr implements OnInit {
     setTimeout(() => {
       if (this.themeService.getTypeTheme()) {
         
-        this.btnThemeLight = "checked"
-        this.btnThemeDark = "";
+        this.btnThemeLight = true
+        this.btnThemeDark = false;
         this.colorText = "colorDark";
       } else {
-        this.btnThemeLight = ""
-        this.btnThemeDark = "checked";
+        this.btnThemeLight = false
+        this.btnThemeDark = true;
         this.colorText = "colorLight";
       }
     }, 250);
