@@ -135,6 +135,10 @@ export class SettingsPageComponentAsfr implements OnInit {
     this.saveService.updateSettings();
   }
 
+  /**
+   * Open a modal asking for confirmation
+   * If confirmed, reset all settings for the current user and update the database
+   */
   openReset(): void {
     const alertDialog = this.dialog.open(ResetComponent);
     alertDialog.afterClosed().subscribe(() => {
@@ -146,10 +150,7 @@ export class SettingsPageComponentAsfr implements OnInit {
         this.dwellTimeShape(true);
         this.toggleThemeLight();
       
-
         this.saveService.updateSettings(); 
-
-        //window.location.reload();
 
         this.notifier.notify('warning', this.translate.instant('notifier.resetSettings'));
       }

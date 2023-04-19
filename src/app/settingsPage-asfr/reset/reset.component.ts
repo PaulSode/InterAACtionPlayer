@@ -30,7 +30,6 @@ export class ResetComponent implements OnInit {
   /**
    * If the user submit, then set the variable to false
    * Then close this dialogComponent
-   * And if the user check the check box "do not show again", then update settings
    */
   submit() {
     this.alertService.alertCancel = false;
