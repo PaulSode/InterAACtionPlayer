@@ -90,6 +90,7 @@ import { SettingsComponent } from './playlist/dialogComponents/settings/settings
 import {SpeedTestModule} from "ng-speed-test";
 import {SettingsPageComponent} from "./playlist/settingsPage/settings-page.component";
 import { ResetComponent } from './settingsPage-asfr/reset/reset.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -169,6 +170,7 @@ import { ResetComponent } from './settingsPage-asfr/reset/reset.component';
     MatTooltipModule,
     MatSliderModule,
     RoundProgressModule,
+    MatMenuModule
   ],
   providers: [
     PlaylistService

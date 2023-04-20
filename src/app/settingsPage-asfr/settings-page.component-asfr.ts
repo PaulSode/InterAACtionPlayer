@@ -9,6 +9,8 @@ import { SaveService } from "../services/save.service";
 import { TranslateService } from "@ngx-translate/core";
 import { AlertService } from '../playlist/services/alert.service';
 import { ResetComponent } from './reset/reset.component';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 @Component({
   selector: 'app-settings-page',
@@ -43,6 +45,9 @@ export class SettingsPageComponentAsfr implements OnInit {
   btnAlertMessageNo;
   btnReset;
 
+  matMenu;
+  currentSize;
+
   error: boolean = false;
   ready = false;
 
@@ -70,6 +75,7 @@ export class SettingsPageComponentAsfr implements OnInit {
     this.isDiskProgressEnable();
     this.isSpinnerOutsideEnable();
     this.isAlertMessageEnable();
+    this.isThemeSize();
   }
 
   /**
@@ -148,6 +154,7 @@ export class SettingsPageComponentAsfr implements OnInit {
         this.diskProgressMode(true);
         this.displayAlertMessage(false);
         this.dwellTimeShape(true);
+        this.changeSize(100);
         this.toggleThemeLight();
       
         this.saveService.updateSettings(); 
@@ -201,6 +208,13 @@ export class SettingsPageComponentAsfr implements OnInit {
     }
 
     this.saveService.updateSettings();
+  }
+
+  changeSize(value) {
+    this.currentSize = value;
+    this.themeService.emitSize(this.currentSize);
+    this.saveService.updateSettings();
+    
   }
 
   /**
@@ -275,6 +289,12 @@ export class SettingsPageComponentAsfr implements OnInit {
         this.btnSpinnerInside = "checked";
       }
     }, 250);
+  }
+
+  isThemeSize(){
+    setTimeout(() => {
+      this.currentSize = this.themeService.themeSize;
+    })
   }
 
   goBack() {

@@ -70,7 +70,8 @@
     "yes": "Yes",
     "no": "No",
     "back": "Back to playlist",
-    "reset": "Reset all settings"
+    "reset": "Reset all settings",
+    "iconSize": "Icon size"
 
   },
   "savePlaylist": {

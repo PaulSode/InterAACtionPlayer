@@ -111,6 +111,20 @@
       </div>
     </div>
 
+    <div class="ui form">
+      <div class="inline fields">
+      <label [class]="colorText">{{ 'settingsPlaylist.iconSize' | translate }}</label>
+      <button id="menuButton" mat-button [matMenuTriggerFor]="menu"> {{ currentSize }} % </button>  
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="changeSize(100)">100%</button>
+        <button mat-menu-item (click)="changeSize(125)">125%</button>
+        <button mat-menu-item (click)="changeSize(150)">150%</button>
+        <button mat-menu-item (click)="changeSize(175)">175%</button>
+        <button mat-menu-item (click)="changeSize(200)">200%</button> 
+        </mat-menu>
+      </div>
+    </div>
+
     <div class="inline field">
 
       <button id="resetIcon" class="ui button" (click)="openReset()">
