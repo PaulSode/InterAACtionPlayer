@@ -68,7 +68,9 @@
     "disable": "Désactiver",
     "yes": "Oui",
     "no": "Non",
-    "back": "Retourner à la playlist"
+    "back": "Retourner à la playlist",
+    "reset": "Réinitialiser les paramètres",
+    "iconSize": "Taille des icônes"
   },
   "savePlaylist": {
     "title": "Sauvegarder la Playlist ?",
