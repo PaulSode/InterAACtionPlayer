@@ -9,6 +9,7 @@ import { SaveService } from "../services/save.service";
 import { TranslateService } from "@ngx-translate/core";
 import { AlertService } from '../playlist/services/alert.service';
 import { ResetComponent } from './reset/reset.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-settings-page',
@@ -43,6 +44,9 @@ export class SettingsPageComponentAsfr implements OnInit {
   btnAlertMessageNo;
   btnReset;
 
+  matMenu;
+  currentSize;
+
   error: boolean = false;
   ready = false;
 
@@ -70,6 +74,7 @@ export class SettingsPageComponentAsfr implements OnInit {
     this.isDiskProgressEnable();
     this.isSpinnerOutsideEnable();
     this.isAlertMessageEnable();
+    this.isThemeSize();
   }
 
   /**
@@ -203,6 +208,13 @@ export class SettingsPageComponentAsfr implements OnInit {
     this.saveService.updateSettings();
   }
 
+  changeSize(value) {
+    this.currentSize = value;
+    this.themeService.emitSize(this.currentSize);
+    this.saveService.updateSettings();
+    
+  }
+
   /**
    * Set the label DwellTime to enable or disable
    */
@@ -277,7 +289,13 @@ export class SettingsPageComponentAsfr implements OnInit {
     }, 250);
   }
 
-  goBack() {
+  isThemeSize(){
+    setTimeout(() => {
+      this.currentSize = this.themeService.themeSize;
+    })
+  }
+
+  goBack(){
     history.back();
   }
 }
