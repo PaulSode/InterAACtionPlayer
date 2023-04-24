@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthguardService } from "../services/authguard.service";
-import {DwelltimeService} from "../services/dwelltime.service";
-import {MatDialog} from "@angular/material/dialog";
-import {NotifierService} from "angular-notifier";
-import {ThemeService} from "../services/theme.service";
-import {LanguageService} from "../services/language.service";
-import {SaveService} from "../services/save.service";
-import {TranslateService} from "@ngx-translate/core";
-import {AlertService} from "../playlist/services/alert.service";
+import { DwelltimeService } from "../services/dwelltime.service";
+import { MatDialog } from "@angular/material/dialog";
+import { NotifierService } from "angular-notifier";
+import { ThemeService } from "../services/theme.service";
+import { LanguageService } from "../services/language.service";
+import { SaveService } from "../services/save.service";
+import { TranslateService } from "@ngx-translate/core";
+import { AlertService } from '../playlist/services/alert.service';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 @Component({
   selector: 'app-settings-page',
@@ -41,6 +43,9 @@ export class SettingsPageComponentAsfr implements OnInit {
   btnAlertMessageYes;
   btnAlertMessageNo;
 
+  matMenu;
+  currentSize;
+
   error: boolean = false;
   ready = false;
 
@@ -67,6 +72,7 @@ export class SettingsPageComponentAsfr implements OnInit {
     this.isDiskProgressEnable();
     this.isSpinnerOutsideEnable();
     this.isAlertMessageEnable();
+    this.isThemeSize();
   }
 
   /**
@@ -154,6 +160,13 @@ export class SettingsPageComponentAsfr implements OnInit {
     this.saveService.updateSettings();
   }
 
+  changeSize(value) {
+    this.currentSize = value;
+    this.themeService.emitSize(this.currentSize);
+    this.saveService.updateSettings();
+    
+  }
+
   /**
    * Set the label DwellTime to enable or disable
    */
@@ -224,6 +237,12 @@ export class SettingsPageComponentAsfr implements OnInit {
         this.btnSpinnerInside = "checked";
       }
     }, 250);
+  }
+
+  isThemeSize(){
+    setTimeout(() => {
+      this.currentSize = this.themeService.themeSize;
+    })
   }
 
   goBack(){

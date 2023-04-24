@@ -89,6 +89,7 @@ import {LogoutAppComponent} from "./playlist/dialogComponents/logoutApp/logout-a
 import { SettingsComponent } from './playlist/dialogComponents/settings/settings.component';
 import {SpeedTestModule} from "ng-speed-test";
 import {SettingsPageComponent} from "./playlist/settingsPage/settings-page.component";
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -167,6 +168,7 @@ import {SettingsPageComponent} from "./playlist/settingsPage/settings-page.compo
     MatTooltipModule,
     MatSliderModule,
     RoundProgressModule,
+    MatMenuModule
   ],
   providers: [
     PlaylistService
